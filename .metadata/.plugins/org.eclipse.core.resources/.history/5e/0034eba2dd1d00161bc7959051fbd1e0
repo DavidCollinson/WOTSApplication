@@ -1,0 +1,15 @@
+
+public class Main {
+	static boolean accountValid = true;
+	public static void main(String[] args) {
+		DBConnect connect = new DBConnect();
+		connect.userLogin();
+		if (accountValid =true){
+			connect.getOrders();
+		}
+		else{
+			System.out.println("Please login with a valid account");
+		}
+	}
+
+}

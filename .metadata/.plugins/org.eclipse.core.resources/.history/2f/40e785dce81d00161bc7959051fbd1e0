@@ -1,0 +1,14 @@
+public class Main {
+	static int accountValid = 0;
+
+	public static void main(String[] args) {
+		DBConnect connect = new DBConnect();
+		while (accountValid == 0){
+			connect.userLogin();
+		}
+		connect.getOrders();
+		
+		
+	}
+
+}

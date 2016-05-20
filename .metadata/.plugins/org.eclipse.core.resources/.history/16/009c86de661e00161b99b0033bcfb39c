@@ -1,0 +1,19 @@
+public class Main {
+	static int accountValid = 0; //variable to handle login
+	static int functionInput = 1;
+
+	public static void main(String[] args) {
+		DBConnect connect = new DBConnect(); //call database connection function
+		while (accountValid == 0){
+			connect.userLogin();
+			System.out.println("Please login with valid details");
+		}
+		System.out.println("Login successful");
+		while (functionInput == 0){
+			connect.getOrders();
+		}
+		
+		
+	}
+
+}

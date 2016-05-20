@@ -1,0 +1,42 @@
+import java.sql.*;
+
+public class DBConnect {
+	private Connection con;
+	private Statement st;
+	private ResultSet rs;
+
+	public DBConnect() {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/wots_application", "root",
+					"root");
+			st = con.createStatement();
+
+		} catch (Exception ex) {
+			System.out.println("Error: " + ex);
+		}
+	}
+
+	public void getOrders() {
+		try {
+			String query = "SELECT * FROM wots_application.table_orders;";
+			rs = st.executeQuery(query);
+			System.out.println("Current Orders:");
+			while (rs.next()) {
+				String itemID = rs.getString("ItemID");
+				String itemName = rs.getString("ItemName");
+				String stock = rs.getString("Stock");
+				String price = rs.getString("Price");
+				String pourusWare = rs.getString("PourusWare");
+				System.out.println("ItemID: " + itemID + "\n" + "ItemName: "
+						+ itemName + "\n" + "Stock: " + stock + "\n"
+						+ "Price: " + price + "\n" + "PourusWare possible:"
+						+ pourusWare);
+			}
+		} catch (Exception ex) {
+			System.out.println("Error: " + ex);
+		}
+	}
+}
