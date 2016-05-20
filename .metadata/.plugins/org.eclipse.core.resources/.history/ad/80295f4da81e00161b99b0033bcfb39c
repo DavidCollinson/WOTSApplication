@@ -24,7 +24,6 @@ public class Main {
 		}
 		while (functionInput == 3){
 			connect.updateOrder(); //update order status call
-			functionInput = 0;
 		}
 		while (functionInput == 4){
 			connect.travelingSalesman(); //display item in warehouse call
